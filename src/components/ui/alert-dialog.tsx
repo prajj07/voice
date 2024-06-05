@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog"
-
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 
@@ -11,6 +12,8 @@ const AlertDialog = AlertDialogPrimitive.Root
 const AlertDialogTrigger = AlertDialogPrimitive.Trigger
 
 const AlertDialogPortal = AlertDialogPrimitive.Portal
+
+
 
 const AlertDialogOverlay = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Overlay>,
@@ -123,8 +126,26 @@ const AlertDialogCancel = React.forwardRef<
     )}
     {...props}
   />
-))
-AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName
+));
+AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName;
+// ... (rest of the code remains the same)
+
+const AudioPlayer = () => {
+  const audioRef = React.createRef<HTMLAudioElement>();
+
+  const handlePlay = () => {
+    audioRef.current?.play();
+  };
+
+  return (
+    <div>
+      <audio ref={audioRef} src="../town.mp3" />
+      <button variant="default" onClick={handlePlay}>
+        Play Audio
+      </button>
+    </div>
+  );
+};
 
 export {
   AlertDialog,
@@ -138,4 +159,6 @@ export {
   AlertDialogDescription,
   AlertDialogAction,
   AlertDialogCancel,
-}
+  AudioPlayer,
+
+};

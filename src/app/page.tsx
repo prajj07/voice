@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
+  AudioPlayer,
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
@@ -10,8 +11,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
-
+} from "@/components/ui/alert-dialog";
 
 export default function Home() {
   return (
@@ -19,24 +19,22 @@ export default function Home() {
       <Button variant="outline">PDF viewer</Button>
 
       <AlertDialog>
-  <AlertDialogTrigger>VOICE </AlertDialogTrigger>
-  <AlertDialogContent>
-    <AlertDialogHeader>
-      <AlertDialogTitle>Are you sure ?</AlertDialogTitle>
-      <AlertDialogDescription>
-        Voice is now playing .... 
-      </AlertDialogDescription>
-    </AlertDialogHeader>
-    <AlertDialogFooter>
-      <AlertDialogCancel>Cancel</AlertDialogCancel>
-      <AlertDialogAction>Continue</AlertDialogAction>
-    </AlertDialogFooter>
-  </AlertDialogContent>
-</AlertDialog>
-
-      
+        <AlertDialogTrigger>VOICE</AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Voice is now playing....
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction>
+              <AudioPlayer /> {/* Add the AudioPlayer component here */}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </main>
   );
-  
 }
-
